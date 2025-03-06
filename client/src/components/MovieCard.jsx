@@ -18,10 +18,6 @@ const MovieCard = ({ movie, selectedMovieId, setSelectedMovieId }) => {
        */
       const fetchMovieDetails = async () => {
         try {
-          console.log(
-            "Fetching movie details from:",
-            `${API_URL}/movieDetails?id=${imdbID}`
-          );
           const response = await fetch(`${API_URL}/movieDetails?id=${imdbID}`);
           if (!response.ok) throw new Error(`Erreur API: ${response.status}`);
 
