@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-roboto: "Roboto Slab", serif;
+  --font-raleway: "Raleway", sans-serif;
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: #151515;
+}
+
+.app {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.3rem;
+  letter-spacing: 0.9px;
+  color: #eb5a11f0;
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.886);
+}
+
+.search {
+  width: 50%;
+  margin: 3rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 3rem;
+  background: #dae5ed;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  font-size: 1.1rem;
+  font-family: var(--font-raleway);
+  font-weight: 500;
+  padding-right: 1rem;
+  outline: none;
+  color: #454545;
+  background: #dae5ed;
+}
+
+.search img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.empty {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty h2 {
+  font-size: 1.25rem;
+  color: #ff4608;
+}
+
+.container {
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movie {
+  width: 310px;
+  height: 460px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.movie p {
+  color: #db960df0;
+  margin-bottom: 10px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: #5e6062 solid 1px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie:hover {
+  box-shadow: 0px 30px 18px -8px rgba(23, 22, 22, 0.522);
+  transform: scale(1.05, 1.05);
+}
+
+.bottom-card {
+  z-index: 2;
+  background-color: #272929;
+  padding: 10px 10px;
+  border-radius: 0 0 10px 10px;
+  border-bottom: #5e6062 solid 1px;
+  border-right: #5e6062 solid 1px;
+  border-left: #5e6062 solid 1px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.bottom-card > h2 {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #de7878;
+}
+
+.bottom-card > h3 {
+  margin-top: 5px;
+  font-family: "Roboto Slab", serif;
+  color: #fd9a49;
+}
+
+@media screen and (max-width: 800px) {
+  .search {
+    padding: 1rem 1.75rem;
+    width: 70%;
+  }
+
+  .search input {
+    font-size: 1rem;
+  }
+
+  .search img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .app {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    margin-top: 2rem;
+  }
+
+  .movie {
+    width: "100%";
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .container {
+    margin-top: 1rem;
+  }
+
+  .search {
+    padding: 1rem;
+    width: 90%;
+  }
+}
+
+/* Card details */
+.movie-details {
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #f8f8f8;
+  width: 70%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  z-index: 9999;
+}
+.movie-details img {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.movie-details h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+/* Bouton pour fermer la fenêtre */
+.movie-details button {
+  padding: 7px 12px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: solid 1px #5e6062;
+  cursor: pointer;
+  position: absolute;
+  left: 95%;
+  transform: translateX(-50%);
+}
+
+.movie-details p {
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .movie-details {
+    width: 90%;
+  }
+  .movie-details button {
+    left: 90%;
+  }
+}
+
+.movie-details button:hover {
+  background-color: #1e1e1e;
+  color: #f0f2f0de;
+}
+
+.message {
+  color: red;
+  font-weight: semibold;
+  text-align: center;
+}
