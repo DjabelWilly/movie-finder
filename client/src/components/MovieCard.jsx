@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import API_URL from "../config/constants";
 
+/**
+ * Affiche un film avec ses détails ou un aperçu
+ * en fonction de si le film est sélectionné ou non.
+ * @function
+ * @param {Object} movie - Les détails du film.
+ * @param {string} selectedMovieId - L'ID du film sélectionné.
+ * @param {Function} setSelectedMovieId - La fonction pour mettre à jour l'état `selectedMovieId`.
+ */
 const MovieCard = ({ movie, selectedMovieId, setSelectedMovieId }) => {
   const { imdbID, Year, Poster, Title, Type } = movie;
   const [movieDetails, setMovieDetails] = useState(null);

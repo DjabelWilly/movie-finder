@@ -4,12 +4,26 @@ import SearchIcon from "./assets/search.svg";
 import "./App.css";
 import API_URL from "./config/constants";
 
+/**
+ * La fonction App est la fonction principale de l'application.
+ * Elle gère l'état de l'application, la recherche de films,
+ * l'affichage des films et la sélection d'un film.
+ * @function
+ * @returns {ReactElement} Le composant App.
+ */
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
   const [message, setMessage] = useState("");
   const [selectedMovieId, setSelectedMovieId] = useState(null); // Gère l'affichage d'un seul film
 
+  /**
+   * Récupère les films en fonction du titre.
+   * @async
+   * @function
+   * @param {string} title - Le titre du film.
+   * @throws {Error} Si la requête API est en erreur.
+   */
   const getMovies = async (title) => {
     try {
       const response = await fetch(`${API_URL}/movies?title=${title}`);
@@ -30,9 +44,25 @@ const App = () => {
     }
   };
 
+  /**
+   * Gère la mise à jour du terme de recherche et sa validation.
+   * Met à jour l'état `searchTerm` avec la valeur de l'input.
+   * Valide le terme de recherche pour s'assurer qu'il ne contient
+   * pas de caractères spéciaux et qu'il n'est pas vide.
+   * Affiche un message d'erreur si la validation échoue.
+   * @function
+   * @param {Object} e - L'événement de saisie de l'utilisateur.
+   */
   const handleTerm = (e) => {
     const searchTerm = e.target.value;
 
+    /**
+     * Valide le terme de recherche pour s'assurer qu'il ne contient
+     * pas de caractères spéciaux et qu'il n'est pas vide.
+     * Affiche un message d'erreur si la validation échoue.
+     * @param {string} term - Le terme de recherche.
+     * @returns {boolean} true si la validation est réussie, false sinon.
+     */
     const validate = (term) => {
       const regex = /^[a-zA-Z0-9\s-_]*$/i;
 
